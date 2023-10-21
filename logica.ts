@@ -1,28 +1,28 @@
-import {Serie} from './Serie.js';
-import {Data} from './Data.js';
+import {Serie} from './serie.js';
+import {Data} from './data.js';
 
-var seriesbody: HTMLElement = document.getElementById('series')!;
-var promedio: number = 0;
+const laseries: HTMLElement = document.getElementById('series')!;
+let promedio: number = 0;
 
-
+elementosTabla(Data)
 
 function elementosTabla(series: Serie[]): void{
   
     series.forEach((serie) => {
-        let trElement = document.createElement('tr');
+        let elemento = document.createElement('elemento');
 
-        trElement.innerHTML =  `<th>${serie.id}</th>
+        elemento.innerHTML =  `<th>${serie.id}</th>
                                 <td class="text-primary">${serie.nombre}</td>
                                 <td>${serie.plataforma}</td>
                                 <td>${serie.temporadas}</td>`;
 
-        seriesbody.appendChild(trElement);
+        laseries.appendChild(elemento);
         promedio += serie.temporadas;
      
     });
 
     promedio /= series.length;
 
-    document.getElementById("average")!.innerHTML = "Seasons Average " + promedio;
+    document.getElementById("average")!.innerHTML = "Seasons Average: " + promedio;
 
 }

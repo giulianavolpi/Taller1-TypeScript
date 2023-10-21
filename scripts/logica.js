@@ -1,5 +1,8 @@
+import  {Data} from './Data.js';	
 var seriesbody = document.getElementById('series');
 var promedio = 0;
+
+elementosTabla(Data)
 function elementosTabla(series) {
     series.forEach(function (serie) {
         var trElement = document.createElement('tr');
@@ -8,6 +11,6 @@ function elementosTabla(series) {
         promedio += serie.temporadas;
     });
     promedio /= series.length;
-    document.getElementById("average").innerHTML = "Seasons Average " + promedio;
+    document.getElementById("average").innerHTML = "Seasons Average: " + promedio;
 }
 export {};
